@@ -17,5 +17,21 @@ var numbersArray = [11,24,45,44,59,43,88,93,58,11,13,14,15,190]
 var stringsArray = ["I", "Love", "DevMountain"]
 var blackDiamondDictionary = ["Mama" : "too cold", "Papa" : "too hot", "Baby" : "just right"]
 
+// Part 1
+let multiplesOfThree = numbersArray.filter { (num) -> Bool in
+    return num % 3 == 0
+}
+print(multiplesOfThree)
 
+// Part 2
+let largestNumber = numbersArray.reduce(Int.min, { max($0, $1) })
+print(largestNumber) // or numbersArray.max
+
+// Part 3
+var joinedStrings = stringsArray.reduce("") {"\($0) \($1)"}
+print(joinedStrings.dropFirst())
+
+// Black Diamond
+let reducedDict = blackDiamondDictionary.reduce("Porridge temperature is ") {$1.key + " " + $0 + $1.value + " "}
+print(reducedDict)
 //: [Next](@next)
